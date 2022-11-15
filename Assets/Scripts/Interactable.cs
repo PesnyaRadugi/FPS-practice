@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Interactable : MonoBehaviour
 {
-    internal string promptMessage;
+    [SerializeField] internal string promptMessage;
     
     public void BaseInteract()
     {
