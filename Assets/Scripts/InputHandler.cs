@@ -17,7 +17,10 @@ public class InputHandler : MonoBehaviour
         onFoot = playerInput.OnFoot;    
         playerController = GetComponent<PlayerController>();
         look = GetComponent<PlayerLook>();
-        onFoot.Jump.performed += ctx => playerController.Jump(); 
+        onFoot.Jump.performed += ctx => playerController.Jump();
+
+        onFoot.Sprint.performed += ctx => playerController.Sprint();
+        onFoot.Crouch.performed += ctx => playerController.Crouch();
     }
 
     private void OnEnable() 
