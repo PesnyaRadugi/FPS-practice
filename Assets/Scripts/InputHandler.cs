@@ -8,14 +8,16 @@ public class InputHandler : MonoBehaviour
     private PlayerInput playerInput;
     private PlayerInput.OnFootActions onFoot;
     private PlayerController playerController;
+    private PlayerLook look;
 
 
     private void Awake() 
     {
         playerInput = new PlayerInput();
-        onFoot = playerInput.OnFoot;
+        onFoot = playerInput.OnFoot;    
         playerController = GetComponent<PlayerController>();
-        onFoot.Jump.performed += ctx => playerController.Jump();
+        look = GetComponent<PlayerLook>();
+        onFoot.Jump.performed += ctx => playerController.Jump(); 
     }
 
     private void OnEnable() 
@@ -30,6 +32,11 @@ public class InputHandler : MonoBehaviour
 
     private void FixedUpdate()
     {
-        playerController.Move(onFoot.Movement.ReadValue<Vector2>());     
+        playerController.Move(onFoot.Movement.ReadValue<Vector2>());
+    }
+
+    private void LateUpdate()
+    {
+        look.Look(onFoot.Look.ReadValue<Vector2>());
     }
 }
