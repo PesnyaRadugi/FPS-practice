@@ -15,6 +15,7 @@ public class InputHandler : MonoBehaviour
         playerInput = new PlayerInput();
         onFoot = playerInput.OnFoot;
         playerController = GetComponent<PlayerController>();
+        onFoot.Jump.performed += ctx => playerController.Jump();
     }
 
     private void OnEnable() 
