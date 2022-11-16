@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
 
 public class PlayerController : MonoBehaviour
 {
     private CharacterController controller;
     private Vector3 playerVelocity;
 
-    // Movement
+    [Header("Movement settings")]
     [SerializeField] private float speed = 5f;
     private float gravity = -9.8f;
     private bool isGrounded;
@@ -18,13 +17,11 @@ public class PlayerController : MonoBehaviour
     private float jumpHeight = 1.5f;
 
 
-    // Start is called before the first frame update
     private void Start()
     {
         controller = GetComponent<CharacterController>();
     }
 
-    // Update is called once per frame
     private void Update()
     {
         isGrounded = controller.isGrounded;

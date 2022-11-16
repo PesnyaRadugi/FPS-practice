@@ -1,12 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
 
 public class PlayerInteract : MonoBehaviour
 {
+    [Header("Interacion raycast parameters")]
+    [SerializeField] private float raycastDistance = 3f;
+    [SerializeField] private LayerMask interactLayer;
     private new Camera camera;
-    [SerializeField] private float distance = 3f;
-    [SerializeField] private LayerMask mask;
     private PlayerUI playerUI;
     private InputHandler inputHandler;
 
@@ -18,13 +18,13 @@ public class PlayerInteract : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         playerUI.UpdateText(string.Empty);
         Ray ray = new Ray(camera.transform.position, camera.transform.forward);
-        Debug.DrawRay(ray.origin, ray.direction * distance);
+        Debug.DrawRay(ray.origin, ray.direction * raycastDistance);
         RaycastHit hitInfo;
-        if (Physics.Raycast(ray, out hitInfo, distance, mask))
+        if (Physics.Raycast(ray, out hitInfo, raycastDistance, interactLayer))
         {
             if (hitInfo.collider.GetComponent<Interactable>() != null)
             {

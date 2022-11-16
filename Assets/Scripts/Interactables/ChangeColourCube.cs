@@ -1,15 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
 
 public class ChangeColourCube : Interactable
 {
-    private MeshRenderer mesh;
+    [Header("Set of colors to swap between")]
     [SerializeField] private Color[] colors;
+    private MeshRenderer mesh;
     private int colorIndex;
     
     
-    void Start()
+    private void Start()
     {
         mesh = GetComponent<MeshRenderer>();
         mesh.material.color = Color.black;

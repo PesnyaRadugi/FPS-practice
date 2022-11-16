@@ -1,26 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 
 public class PlayerHealth : MonoBehaviour
 {
-    private float health;
-    private float lerpTimer;
+    [Header("Health bar")]
+    [Tooltip("Parameters of a health bar view, and overall HP")]
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] private float chipSpeed = 2f;
     [SerializeField] private Image frontHealthBar;
     [SerializeField] private Image backHealthBar;
+    private float health;
+    private float lerpTimer;
 
 
-    void Start()
+    private void Start()
     {
         health = maxHealth;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         health = Mathf.Clamp(health, 0, maxHealth);
         UpdateHealthUI();
