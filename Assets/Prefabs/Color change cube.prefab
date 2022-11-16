@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59fe25d410914004593926d0b5ebf7d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useEvents: 0
   promptMessage: Use color-changing cube
   colors:
   - {r: 1, g: 0.031145917, b: 0, a: 0}
